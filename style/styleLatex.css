@@ -1,0 +1,69 @@
+body{
+	background-image: url(../images/white.jpg);
+}
+
+h1{
+	color: #D70013;
+font-size:3em;
+	width:50%;          /* taille de arriere plan */
+	text-align: center;
+	margin-left:auto;   /* center le titre */
+	margin-right: auto;
+	  background: linear-gradient(to bottom right, #f713b3, rgba(255, 252, 252, 0.15));
+}
+
+h2{
+	color: black;
+	font-size:2em;
+		width:50%;          /* taille de arriere plan */
+		text-align: center;
+		margin-left:auto;   /* center le titre */
+		margin-right: auto;
+		  background: linear-gradient(to bottom right, #A650E1, rgba(255, 252, 252, 0.15));
+}
+
+div{
+	margin: 2%;
+	padding: 1%;
+}
+
+div.definition{
+	background: linear-gradient(to bottom right, #B8FF9C, rgba(255, 252, 252, 0.15));
+	border: 1px solid
+}
+
+div.proposition{
+	background: linear-gradient(to bottom right, #FFA62E, rgba(255, 252, 252, 0.15));
+	border: 1px solid
+}
+
+div.theoreme{
+	background: linear-gradient(to bottom right, #EB2803, rgba(255, 252, 252, 0.15));
+	border: 1px solid
+}
+
+div.lemme{
+	background: linear-gradient(to bottom right, #D59CFF, rgba(255, 252, 252, 0.15));
+	border: 1px solid
+}
+
+div.exemple{
+	background: linear-gradient(to bottom right, #a3d1ff, rgba(255, 252, 252, 0.15));
+	border: 1px solid
+}
+
+a span.ancre{
+	background-color: blue;
+	color: white;
+	padding: 1%;
+
+}
+
+a:visited span.ancre{
+	color: yellow;
+}
+
+a:hover{
+	background-color: green;
+	color:white;
+}
