@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MathJax TeX Test Page</title>
+<link rel="stylesheet" type='text/css'  href="../style/styleLatex.css" title="style des fiches de revisions en Maths" />
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+
+</head>
+<body>
+  <span class='ancre'> <a href='../Omnibus_Pretium.html'> Revenir à la page d'acceuil </a> </span>
+
+
+
+<h1> Anneaux   </h1>  <!--  \( \) -->
+
+<div class='definition anneau'>
+
+  Un <strong>anneau</strong> \((A,+,•)\) est un ensemble non-vide \(A\), muni de 2 opérations (ou lois de composition interne),
+  une addition et la multiplication, vérifiant les propriétés suivantes: <br/>
+  \(\enclose{circle,box}{1} \) L'ensemble \((A,+)\) est un groupe abélien (élément neutre \(0_A \)) <br/>
+  \(\enclose{circle,box}{2} \) La multiplication possède un élément neutre \(1_A \) <br/>
+  \(\enclose{circle,box}{3} \) La multiplication est associative : \( (a.b).c = a.(b.c)\) <br/>
+  \(\enclose{circle,box}{4} \) La multiplication est distributive sur l'addition . <br/>
+  <br/>
+  Un anneau \( A\) est abélien quand la multiplication est commutative.
+</div>
+
+<div class='exemple'>  <!--  \( \) -->
+Anneaux commutatifs intègres: \( (\mathbb{Z},+,•) \), \( (\mathbb{Q},+,•) \), \( (\mathbb{R},+,•) \), \( (\mathbb{C},+,•) \) <br/>
+<br/>
+Mais \( (\mathbb{N},+,•) \) n'est pas anneau car \( (\mathbb{N},+) \) n'est pas un groupe.
+</div>
+
+<div class='exemple'>
+  Anneaux commutatifs:  \(\mathbb{Z}/n\mathbb{Z} \) n'est pas intègre si \(n\) n'est pas un nombre premier <br/>
+  Anneaux commutatifs intègres : \( (\mathbb{Z[X]},+,•) \), \( (\mathbb{Q[X]},+,•) \), \( (\mathbb{R[X]},+,•) \), \( (\mathbb{C[X]},+,•) \) <br/>
+  Anneau non commutatif : \( M_n (\mathbb{R})\) quand \( n \geq 2\)
+</div>
+
+<div class='proposition'>
+  <strong> Règles de calcul dans un anneau </strong>
+    (i) élement neutre \( O_A\) est absorbant par multiplication
+    (ii) \( \forall a,b \in A, -(ab)=(-a)b = a(-b), (-a)(-b)=ab    \) <br/>
+    (iii) \( \forall n \in \mathbb{Z}, a,b \in A,  n(a.b)= (n.a)b = a(n.b)      \) <br/>
+    (iv) \((a+b)^n = \sum_{k=0}^{n} (n k) a^k b^{n-k} \)  <br/>
+</div>
+
+<div class='definition'>
+  Un anneau \(A \) est dit <strong> intègre </strong> s'il est commutatif <br/>
+    et si \( \)
+    si l'\(A \) n'est pas intègre, les éléments a et b non nuls <br/>
+    vérifiant \(ab=0 \) sont des diviseurs de zéro.
+</div>
+
+<h2> Elements inversible et Corps </h2>
+
+<div class='definition'>
+  Un élément \(a\) d'un anneau \(A \) est dit <strong> inversbile </strong> si \(\exists b \in A \) <br>
+  tq  \( ab=ba=1_A\). On appelle \( b\) l'inverse de \(a: a^{-1} \). <br/>
+  On note \( \mathbb{U}(A)\) ou \( A^{X}\)  l'ensemble des éléments inversibles, <br/>
+  dits aussi unités, de l'anneau \(A \).
+</div>
+
+<div class='proposition'>
+  Un anneau \(A \) ds lequel tout élément non-nul est inversible <br/>
+  est un <strong> coprs </strong>  \( \mathbb{U}(A)=A^{*} \)
+</div>
+
+<div class='exemple'>
+  Remarque : \( 0_A\) : jamais inversible, \(1_A \) et \(-1_A \) sont toujours inversibles
+</div>
+
+<div class='proposition'>
+  Soit \((\mathbb{A},+,•) \) un anneau, <br/>
+  alors \( (\mathbb{U}(A), \times)\) est un groupe.
+</div>
+
+<div class='proposition'>
+  Tout corps commutatif est un anneau intègre.
+</div>
+
+<div class='exemple'>
+  • \(\mathbb{U}(Z)= {-1,1} \)
+  • \( \mathbb{U}(\mathbb{Q}) = \mathbb{Q}^{*}, \mathbb{U}(\mathbb{R}) = \mathbb{R}^{*}, \mathbb{U}(\mathbb{C}) = \mathbb{C}^{*} \) donc sont des corps <br/>
+  • si \( A\) est  Anneau intègre alors \(A[X] \) est aussi Anneau intègre  <br/>
+   \( \rightarrow\) \( \mathbb{U}(A[X]) = \mathbb{U}(A)\) : ens de polynômes ctes <br/>
+  • \(\mathbb{U}(M_n(\mathbb{R})) = G_{Ln}(\mathbb{R}) \) <br/>
+  • Dans anneau, \(\mathbb{Z}/n\mathbb{Z} \), l'élément neutre pour multiplication est \( \) et <br/>
+  ses éléments inversibles sont les classes \( \) pour lesquelles <br/>
+  \( \) et \( \) sont premiers entre eux. <br/>
+  • \(\mathbb{Z}/n\mathbb{Z} \) est un corps si \(n \) est un nombre premier.
+</div>
+
+<h2> Sous-Anneaux </h2> <!--  \( \) -->
+
+<div class='definition'>
+Une partie \( B\) d'un anneau \( (A,+,•)\) est un sous anneau, <br/>
+de \(A \) si elle vérifié pptés : <br/>
+\(\enclose{circle,box}{1} \) L'ensemble \( (B,+)\), muni de l'addition de \(A \), est sous-groupe de \( (A,+)\) <br/>
+\(\enclose{circle,box}{2} \) L'enseble \( B\) est stable pour la multiplication de \(A \): \(  \forall a,b \in B, a \times b \in B\) <br/>
+\(\enclose{circle,box}{3} \) \(1_A \in B \) <br/>
+<br/>
+L'ensemble \((B,+,•) \) est alors lui-même un anneau.
+</div>
+
+<div class='exemple'>
+  • \(\mathbb{Z} \) : sous-anneu de \(\mathbb{Q} \), sous-anneau de \(\mathbb{R} \), sous-anneau de \(\mathbb{C} \) <br/>
+  • \( \mathbb{Z}[i] = \{ a+ ib, a,n \in \mathbb{Z} \} \subset \mathbb{C} \)
+    \( \rightarrow  \) anneau des entiers de Gauss
+    \( \rightarrow\) : sous-anneau de \(\mathbb{C} \)
+</div>
+
+<h2> Sous-Corps </h2> <!--  \( \) -->
+
+<div class='definition'>
+  Une partie \(L \) d'un corps \((\mathbb{K,+,•}) \) <br/>
+  est un sous-coprs de \( \mathbb{K}\) si vérifie pptés : <br/>
+  \(\enclose{circle,box}{1} \) \(L \) est un sous-anneau de \(\mathbb{K} \) <br/>
+  \(\enclose{circle,box}{2} \) Pour tout \( x \in L^*\), on a \(x^{-1} \in L \) <br/>
+  L'ensemble \( (L,+,•)\) est lui-même un corps.
+</div>
+
+<div class='exemple'>
+  \(  \mathbb{Q}\) est un sous-coprs de \(  \mathbb{R}\) est un sous-coprs de \( \mathbb{C} \)
+
+</div>
+
+
+
+
+<span class='ancre'> <a href='../Omnibus_Pretium.html'> Revenir à la page d'acceuil </a> </span>
+<!-- <div class='exemple'>
+</div>
+
+<div class='definition'>
+</div>
+
+<div class='proposition'>
+</div>
+
+<div class='theoreme'>
+</div>
+
+<div class='lemme'>
+</div> -->
+
+<!-- 91 6376 994 681 : udit dhakad -->
+</body>
+</html>

@@ -1,0 +1,52 @@
+/* premier fichier style css */
+
+/* color, background-color, font-size, font-style */
+
+/* h1 {
+  font-size:3em;
+  color: red;
+  background-color:  #fbff00;
+  text-align: center;
+  font-family:Arial Black,Arial Black,Calibri,sans serif;
+}
+
+p {
+  font-size:0,5em;
+  color:  blue;
+  border: solid red 5px;
+  border-radius: 30px;
+  font-family: Cambria,Courier;
+  padding: 20px;
+  background: #fef1ff  ;
+}  */
+
+body{
+  background-color:black;
+}
+
+h1 {
+  font-size:3em;
+  color: red;
+  background-color:  #fbff00;
+  text-align: center;
+  font-family:monospace;
+}
+
+h2,h3 {
+  font-size:2.5em;
+  color: red;
+  background-color:  #fbff00;
+  text-align: left;
+  font-family:monospace;
+}
+
+p,code,table {
+  font-size:1.5em;
+  color:  black;
+  border: solid red 3px;
+  border-radius: 20px;
+  font-family: monospace,Courier;
+  padding:5px;
+  background: #fef1ff  ;
+  /* padding: 10px; */
+}

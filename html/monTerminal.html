@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang='fr'>
+	<head>
+		<meta charset="utf-8">
+		<title>Mettre un titre ici en 65 caractères max</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="robots" content="index,follow" />
+		<meta name="Description" content="Mettre une description ici en 156 caractères max" />
+		<link rel="stylesheet" href="styleTerminal.css">
+	</head>
+	<body>
+
+		<h1> Mes Prises de Notes sur le Terminal Unix </h1>
+
+	  <h3> Ouvrir Jupyter notebook  </h3>
+
+	  <code> /opt/anaconda3/bin/jupyter_mac.command ; exit; </code>
+
+
+	  <h3> Utilisation de pandoc </h3>
+
+	  <code> pandoc test.md -f markdown -t html -s -o test1.html </code>
+
+	  <h3> Ouvrir les fichiers d'iCloud à partir du terminal </h3>
+
+	  <code> cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/ </code> </br> </br>
+
+	  <code> cd ~/Library/Mobile\ Documents/3L68KQB4HG~com~readdle~CommonDocuments/ </code> </br> </br>
+
+	  <code> cd /Users/maxencedefraiteur/Library/Mobile Documents/3L68KQB4HG~com~readdle~CommonDocuments/Documents/Omnibus PDF Pretium </code> </br> </br>
+
+	  <h3> Image hosted on Google Drive </h3>
+
+	  <code> https://drive.google.com/uc?export=view&id="img_id_SANS_GUILLEMETS" </code> </br> </br>
+
+	  <h3> Effacer des dossiers vide</h3>
+
+	  <code> find . -type d -empty -delete </code> </br> </br>
+
+	  <h3> Quelques commandes de terminal</h3>
+
+	  <code> https://ss64.com/osx/ </code> </br> </br>
+
+	  <h3> Compter le nombre de dossier</h3>
+
+	  <code> ls-l | wc-l </code> </br> </br>
+
+	  <h3> Accéder aux disques durs externes</h3>
+
+	  <code> cd /Volumes/ </code> </br> </br>
+
+	  <h3> Des raccourcis</h3>
+
+	  <code>
+  Crtl-a   Aller en début de ligne
+  Crtl-e   Aller en fin de ligne
+  Crtl-k   Supprimer du curseur à la fin de la ligne
+  Crtl-u   Supprimer avant le curseur
+  Crtl-w   Supprimer le mot avant le curseur
+  Crtl-t   Échanger les 2 caractères avant le curseur
+  Esc-t    Échanger les 2 mots avant le curseur </code> </br> </br>
+
+
+  <h3> Arborescence tree </h3>
+
+  <code> -d : directories only
+		 --du: size directories
+		 -C : colors
+		 -X : XML output
+		 -H baseHREF: HTML output
+  </code> </br> </br>
+
+  - eating       9
+  - creating     8
+  - running      7
+  - car          6
+  - university   5
+  - bday 20      4
+  - dad          3
+  - vanshika     2
+  - max          1
+
+	<h3> Scroller html</h3>
+
+	<code> 	javascript:setInterval(function(s){scrollBy(0,s||1)},75)</code> </br> </br>
+
+	<h3> Astuces de codes en LaTeX ( md ) </h3>
+
+	<h3> Diviser le texte d'un document en 2 ( 🔗 ) </h3>
+
+	<code >\documentclass[twocolumn]{article}
+
+	\usepackage{lipsum}
+
+	\begin{document}
+
+	\sloppy% Just for this example
+	\lipsum[1-20]
+
+	\end{document} </code> </br> </br>
+
+
+	<code> \documentclass{article}
+
+	\usepackage{multicol}
+	\usepackage{lipsum}
+
+	\begin{document}
+
+	\sloppy% Just for this example
+	\lipsum[1]
+
+	\begin{multicols}{2}
+	  \lipsum[2-8]
+	\end{multicols}
+
+	\lipsum[9-10]
+
+	\end{document} </code> </br> </br>
+
+
+	<code>
+	\documentclass{article}
+	\begin{document}
+	\begin{minipage}{0.45\textwidth}
+	\begin{enumerate}
+	  \item First item \\
+	        This is the second line in item and this may extend to third if long
+	  \item second item\ldots
+	\end{enumerate}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}{0.45\textwidth}
+	\begin{tabular}{|p{\textwidth}}
+	This is second part \\
+	$f(x) = 2x + 3y$ This line may go all along the end and wrap afterwards to the next as seen here\\
+	This is a forced next line by ending the previous line
+	\end{tabular}
+	\end{minipage}%
+	\end{document} </code> </br> </br>
+
+
+	<h3> Découper en plusieurs colonnes ( code Overleaf ) </h3>
+
+  <pre> <code>&lt;p&gt;
+	\documentclass{article}
+	\usepackage[utf8]{inputenc}
+	\usepackage[english]{babel}
+
+	\usepackage{multicol}
+	\usepackage{color}
+
+	\usepackage{comment}
+
+	\setlength{\columnseprule}{1pt}
+	\def\columnseprulecolor{\color{blue}}
+
+	\begin{document}
+
+	\begin{multicols}{3}
+	[
+	\section{First Section}
+	All human things are subject to decay. And when fate summons, Monarchs must obey.
+	]
+
+	Hello, here is some text without a meaning.  This text should show what
+	a printed text will look like at this place.
+
+	If you read this text, you will get no information.  Really?  Is there
+	no information?  Is there.
+
+	\columnbreak
+
+	This will be in a new column, here is some text without a meaning.  This text
+	should show what a printed text will look like at this place.
+
+	If you read this text, you will get no information.  Really?  Is there
+	no information?  Is there...
+	\end{multicols}
+
+	Something else here. The text should not be multicolumned in this part
+
+	\end{document} &lt;p&gt;</code>  <pre> </br> </br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<h3> Mes Devoirs </h3>
+
+	  <style type="text/css">
+	  .tg  {border-collapse:collapse;border-spacing:0;}
+	  .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+	    overflow:hidden;padding:10px 5px;word-break:normal;}
+	  .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+	    font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+	  .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+	  .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+	  </style>
+	  <table class="tg">
+	  <thead>
+	    <tr>
+	      <th class="tg-c3ow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;M - 32</th>
+	      <th class="tg-c3ow">15-22/09</th>
+	      <th class="tg-c3ow">22-29/09</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td class="tg-0pky">Exercices</td>
+	      <td class="tg-0pky">• I.25 (i,iii,iv)<br>• I.26 (iii)<br>• I.27 (i,ii)</td>
+	      <td class="tg-0pky">• 29,30<br>• 31,32<br>• 35 (iv,v)<br>• 36 (i,iii,iv)</td>
+	    </tr>
+	    <tr>
+	      <td class="tg-0pky">Supplémentaires</td>
+	      <td class="tg-0pky">• I.23<br>• I.25 (vii)<br>• I.28 (i)</td>
+	      <td class="tg-0pky">• 37,34<br>• 38,40</td>
+	    </tr>
+	    <tr>
+	      <td class="tg-0pky">Démonstrations</td>
+	      <td class="tg-0pky">• Lemme I.3<br>• Lemme I.5</td>
+	      <td class="tg-0pky">• Lemme I.9</td>
+	    </tr>
+	  </tbody>
+	  </table>
+
+
+
+	  <a href="../Omnibus_Pretium.html">Retour à la page d'accueil</a>
+
+
+	</body>
+	</body>
+</html>
