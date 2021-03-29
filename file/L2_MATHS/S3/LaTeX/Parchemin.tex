@@ -1,0 +1,122 @@
+% Mon Parchemin LaTeX
+
+\section{Développements Limités}
+
+\begin{mydef}e^x = 1 + x + \dfrac{x^2}{2 !} + \cdots + \dfrac{x^n}{n!} + o(x^n) \\
+(1+x)^{\alpha} = \sum_{k=0}^{n} \dfrac{\alpha  (\alpha -1) \cdots (\alpha - k+1)}{k!}
+x^k + o(x^k) \\ \cos x = \sum_{k=0}^{n} (-1)^k \dfrac{x^{2k}}{2k!} + o(x^{2n+1}) \\
+ch \; x= \sum_{k=0}^{n} \dfrac{x^{2k}}{2k!} + o(x^{2n+1}) \\ \sin x = \sum_{k=0}^{n} (-1)^k \dfrac{x^{2k+1}{(2k+1)!}+ o(x^{2n+2})\\
+sh x = \sum_{k=0}^{n} \dfrac{x^{2k+1}{(2k+1)!} + o(x^{2n+2}) \end{mydef}
+
+\begin{prop} \dfrac{1}{\sqrt{1=x^2} = 1+ \dfrac{x^2}{2}}+ \dfrac{3}{8} x^4 + \cdots + o(x^n) \\
+\dfrac{1}{\sqrt{1-x}}= 1 - \dfrac{x}{2} + \dfrac{3}{8} x^2 + \cdots + o(x^n) \\
+\sqrt{1+x} = 1 + \dfrac{x}{2} - {x^2}{8}+ \cdots + o(x^n) \end{prop}
+
+\begin{prop} \dfrac{1}{\sqrt{1 -x^2}} = 1 + \dfrac{x^2}{2} + \dfrac{3}{8} x^4 + \cdots + o(x^n) \\
+\arcsin x = x + \dfrac{x^3}{6} + \cdots + o(x^n) \end{prop}
+
+\begin{mydef} \dfrac{1}{1+x}^{\alpha} = 1-x + x^2 -x^3 + x^4 + \cdots + o(x^4) \\
+\ln (1+x)= x- \dfrac12 x^2 + \dfrac13 x^3 - \dfrac14 x^4 + \cdots + o(x^n) \\
+\tan x = x + \dfrac13 x^3 + \dfrac{2}{15}x^5 + \dfrac{17}{215} x^7 + \cdots + o(x^n) \\
+\arctan x = \dfrac{\pi}{2} - x+ \dfrac{x^3}{3} + o(x^3) \end{mydef}
+
+\section{Developpement Limité 1}
+
+\subsection{Qutotient et Intégration DL}
+
+\begin{theo}{TH Divisions suivants puissances croissantes} soit \; A, B \; \in \; \mathbb{K}[X], 2 \; polynomes \; avec B(o) \neq 0 alors \forall n \in \mathbb{N}, \exists 2 polynomes Q_n et R_n unique. \\
+A(X)= B(X).Q_{n}(X)+X^{n+1} R_n(X) avec degré Q_n(X)+ X^{n+1} R_n(X) avec degré Q_n \leq n \rightarrow Q: quotient à ordre n de la division \end{theo}
+
+\begin{theo} supposons f,g admet {DL}_n(o) forme f(x)=A(x)+ o(x^n) et g(x)=B(x)+o(x^n) où A,B polynômes degré \leq n \\
+Si g(o) \neq 0 alors \dfracfg admet {DL}_n(o) de la forme \\
+\dfrac{f(x)}{g(x)}= Q(x)+o(x^n) \end{theo}
+
+\begin{theo}{Integration x} Soit n \in \mathbb{N}, f fonction dérivable au voisinage de 0. Si f admet un {DL_n (0)} de la forme f^{'}(x) = \sum_{k=0}^{n} a_k x_k + o(x^n) alors f admet {DL}_{n+1}(0) de la forme \\
+f(x)=f(0)+ \sum_{k=1}^{n+1} \dfrac{x_{k-1}}{a_k}x^k +o(x^{x+1}) \end{theo}
+
+\subsection{Developpement Limité 2}
+
+\subsection{Etude locale près points critiques}
+\begin{theo} Soit f fonction def voisinage x_0 \in \mathbb{R} supposons f admet {DL}_p (x_0) de forme \\
+f(x) = f(x_0) + \alpha(x-x_0)^p+ o((x-x_0)^p) avec \alpha \neq 0, p \leq 2
+
+\begin{itemize} \item si p impair, point x_0 n'est ni max, ni min
+\item si p point \alpha >0, x_0 est min local strict
+\item si p pair et \alpha < 0, x_0 est max local strict \end{theo}
+
+\begin{theo} Alors le graphe de admet la droite \gamma y=a_0 + a_1 (x-x_0) comme tangente au point x_0 et:
+\begin{itemize} \item si p impair, C_f traverse tangente en \item si p pair et \alpha 0,  C_f au-dessus de \gamma \item si papir et \alpha 0, C_f en-dessous de \gamma \end{itemize} \end{mydef}
+
+\begin{rmk} $DL$ permet de savoir si un point critique est un max local, min local, ou ni l'un ni l'autre \end{rmk}
+
+\subsection{Branches infinies et asymptoptes}
+
+\begin{theo} supposons f admet DL en +_ \infty de la forme \\
+f(x)= ax+b + \dfrac{a_1}{x} + \dfrac{a_2}{x^2} + \cdots + \dfrac{a_n}{x^n} + o(\dfrac{1}{x^n}) alors la droite \gamma : y=ax+b \\
+est une asymptote de C_f au voisinage de +- \infty
+
+En notant a_k, k \leq 1, le premier terme non nul, la position de \gamma par rapport à C_f est donnée par le signe de \dfrac{a_k}{x^k} \end{theo}
+
+\subsection{Calcul de Limite}
+
+\begin{rmk}
+calcul \lim_{x \to 0} \dfrac{f(x)}{g(x)}, calcul DL de f et g pour comparer comportement en 0, sinon en + \infty permet f (\dfrac1x) \; attention au deg numerateur \end{rmk}
+
+\section{ED 1er ordre}
+
+\subsection{Equation Differentielle 1}
+
+\begin{mydef} \begin{itemize}{roman letters} \item EQ d'ordre n est F(x,y,y^{'}, \cdots y^{n}) = 0 \\
+F : fonction de (n+2) variables
+\item Une solution de (1) sur intervalle I \subset \mathbb{R} est fonction y:I \rightarrow \mathbb{R} n fois dérivable
+\item Résoudre (1), on intègre, chercher \forall solutions sur + grnad intervalle possible
+\item ED linéaire : \\
+a_0(x)y + a_1(x)y^{'} + \cdots + a_{x}y^{(n)} = y(x)
+\item ED homogène : \\
+a_0(x)y + a_1(x)y^{'} + \cdots + a_{n}(x) y^{(n)} = 0
+\item ED linéaire à coeff cte : \\
+a_0 y + a_1 y ^{'} + \cdots + a_x y^{x}= g(x) \end{mydef}
+
+\begin{prop}{Principe de Linéarité} si y_1, y_2 sont solutions EDLH alors \forall \lambda, \mu \in \mathbb{R}: \lambda y_1 + \mu y_2 est aussi solution \end{prop}
+
+\begin{prop}{Principe de Superposition} soit EDL et EH alors l'ensemble des solutions de (E): \\
+y(x)=y_0(x)+y_h(x) \end{prop}
+
+\begin{theo} soit a:I \rightarrow \mathbb{R} une fonction continue et A primitive de a.
+Les solutions (E) y^{'} +a(x)y = 0 \\
+soit y(x) = k. e^{- A(x) \bigskip k : cte qq \end{theo}
+
+\begin{coro} (E) y^{'}+ a(x)y = b(x) et (E_h): y^{'}+a(x)y=0 solutions y(x)=y_0(x)+k.e^{-A(x)} \end{coro}
+
+\subsection{Méthode trouver solution particulière de E : variation de cte}
+
+\begin{theo} \begin{itemize} \item on résoud (E_h : y^{'} + a(x)y=0 d'où solutions  y(x)=k.e^{-A(x)}, k \in \mathbb{R}
+\item MVC chercher solution parituclière (E) sous la forme \\
+y_0(x)=k(x).e^{-A(x)} où k est fonction dérivable
+\item y est solution (E) \Leftrightarrow y_0^{'}(x)+a(x)y_0(x)=b(x) \rightarrow k(x) = \int b(x). e^{A(x)} dx \end{theo}
+
+\subsection{Equation Differentielle 2}
+\subsubsection{ED 2nd ordre à coeff cte}
+
+\begin{def} (E):a y^{''}+ by^{'}+cy = g(x) ; a,b,c \in \mathbb{R}, a \neq 0, g: I \rightarrow \mathbb{R}, (E_h): ay^{''}+b^{'}+cy=0,
+idée résoudre (E_h) puis on applique PDS en cherchant solution paritulière de (E) \end{mydef}
+
+\subsubsection{Résolution E_h}
+\begin{prop} (E_c):aX^{2}+bX+c=0
+
+\begin{itemize}{numerate} \item \Delta > 0: x_1 = \dfrac{-b+ \sqrt{\Delta}{2a}}, x_2 = \dfrac{-b - \sqrt{\Delta}{2a}} \Rightarrow
+
+\{^{y_1 = e^{x_1 x}}_{y_2 = e^{x_2x}} solution (E_h)
+
+\item \Delta =0 : x_3 = \dfrac{-b}{2a}, y_3(x)= e^{x_3 x} et y_4(x) = x \times e^{x_4 x}
+
+\item \Delta < 0 : racines ? \alpha +- i \beta \Rightarrow
+
+\{^{y_5 (x)=e^{\alpha x \cos (\beta x)}}_{y_6(x)=e^{\alpha x \sin (\beta x)}} \end{prop}
+
+\begin{prop} (E_h): ay^{''}+b^{'}+cy=0, a, b, c \in \mathbb{R}, a \neq 0, \\
+(E_c):aX^{2}+bX+c=0 \\
+\begin{itemize}{numerate} \item \delta > 0: y_h (x)= \lambda_1 e^{x_1 x} + \lambda_2. e^{x_2x} est solution de (E_h)
+
+\item \delta =0 : y_h(x) = ( \lambda_1 + \lamnda_2 x) e^{xx} csd (E_h)
+\item \dela <0 : y_h(x)= \lamdbda_1 e^{\alpha x} . \cos(\beta x) + \lambda_2 \sin(\beta x ) esd (E_h) \end{itemize} \end{prop}
