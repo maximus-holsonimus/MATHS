@@ -1,0 +1,550 @@
+\documentclass[11pt]{article} % type de document avec taille de police par défaut
+\usepackage{MACROS/m44cours}
+% ---------------
+\title{M42 -- Algèbre linéaire/bilinéaires et espaces euclidiens}
+\author{Maxence Defraiteur}
+\date{\today}
+% ---------------
+
+\usepackage{ dsfont }
+\usepackage{pagecolor}
+\usepackage{bclogo}
+
+% \color{white}  %%% LIGNE A SUPPRIMER pour couleur NORMALE
+\begin{document}
+% ====================================================================
+\maketitle
+\tableofcontents
+
+% \pagecolor{black!30!black}   %%% LIGNE A SUPPRIMER pour couleur NORMALE
+
+\textbf{Ce document évoluera au cours du semestre.} De ce fait il n'est pas destiné à une impression. Ce document contient:
+\setcounter{topic}{-1}
+\definition \textcolor{definition}{\ref{numberdefinitions} définitions};
+\setcounter{topic}{-1}
+\lemme \textcolor{lemme}{\ref{numberlemmes} lemmes};
+\setcounter{topic}{-1}
+\corollaire \textcolor{corollaire}{\ref{numbercorollaires} corollaires};
+\setcounter{topic}{-1}
+\theoreme \textcolor{theoreme}{\ref{numbertheoremes} theoremes};
+\setcounter{topic}{-1}
+\proposition \textcolor{proposition}{\ref{numberpropositions} propositions};
+\setcounter{topic}{-1}
+\commentaire \textcolor{black}{\ref{numbercomments} Commentaires/notes/remarques}.
+% à partir de maintenant les liens sont en bleu
+\hypersetup{colorlinks=true, allcolors=blue}
+
+% ====================================================================
+\section{Dualité }
+
+\subsection{Formes linéaires et espace dual}
+% ====================================================================
+
+\definition Application bilinéaire $ \mathcal{L}(E,\mathbb{K})=E^* $ \\
+$\begin{array}{rcl}
+\mathcal{L}(E,F) &\to& \mathcal{M}_{m,n}(\mathbb{K})\\
+\upvarphi &\mapsto & Mat_{\mathcal{E}, \mathcal{F}}(\upvarphi)
+\end{array}$.
+% ------------------------------------------------------------  ------
+% ------------------------------------------------------------  ------
+
+\subsection{Hyperplans}
+
+\proposition $Mat_{\mathcal{E}^{'}}(\upvarphi) = Mat_{\mathcal{E}} (\upvarphi) .T$ \\
+$Mat_{\mathcal{E}^{'}, \mathcal{F^{'}}}(\upvarphi) = S^{-1}Mat_{\mathcal{E}, \mathcal{F}} (\upvarphi)$
+
+\definition Un \term{hyperplan} :  $ \forall x \in E, \upvarphi(l)=0$ . \\
+$\ker (l)$ est un hyperplan. \\ $ E^* = \mathcal{L}(E,K) \longrightarrow \upvarphi \; \in \; E^* $ signifie $\begin{array}{rcl}
+\upvarphi:E &\to& \mathbb{K}\\
+x &\mapsto & \upvarphi(x)
+\end{array}$. (Ainsi $ \forall \; x \in \; E$)
+
+
+\definition Le \term{delta de Kronecker} $ \mathcal{E}_{i}(e_{j})= \delta_{ij}$ .
+
+
+\subsection{Base duale et anté-duale}
+
+
+\definition $( \mathcal{E}_1, \cdots , \mathcal{E}_n ) $ de $E^{*}$ base duale / $(e_1, \cdots , e_n) \; $ base anté duale.
+
+\newpage
+
+\subsection{Le double dual}
+
+\proposition $P_{\mathcal{E}^{*} \to \mathcal{E}^{'*}} = (~^tP_{\mathcal{E} \to \mathcal{E}^{'}})^{-1}$
+
+\corollaire AL, $\upvarphi: E \to E^{**}$   avec $\dim E < \infty \longrightarrow \upvarphi $ isomorphisme canonique entre $E $ et $  E^{**}$.
+
+\subsection{Les annulateurs}
+
+\definition Annulateur de $F$ dans $E^{*}$, avec $F$ s-e.v. de $E$ : noté $F^{\bot} = \{ l \; \in \; E^{*} | \forall \; v \; \in \; F, \; l(v)=0  \} $
+
+\definition Annulateur de $G$ dans $E$, avec $G$ un s-e.v. de $E^{*}$ :$G^{\bot} = \{ v \; \in E | \; \forall \; l \in \; G, \; l(v)=0 \}$
+
+\definition $F^{\bot} :$ ens équations linéaires de F
+
+\proposition $F \subset G \longrightarrow  G^{\bot} \subset F^{\bot}  \\  (F+G)^{\bot} = F^{\bot} \cap G^{\bot} \\ F \subset F^{\bot \bot } \\ F^{\bot} + G^{\bot} \subset (F \cap G)^{\bot}) $ \\ $\dim F + \dim F^{\bot} = \dim E$
+\subsection{La transposée}
+
+\definition On def la transposee : $~^t{\upvarphi} \in \mathcal{L}(F^{*},E^{*}) : \; \forall \; l \; \in \; F^{*}, ~^t{\upvarphi}(l) = l \circ \upvarphi$.
+
+\proposition $Mat_{\mathcal{F^{*}}, \mathcal{E}^{*} }(~^t{\upvarphi)} = ~^t{(Mat_{\mathcal{E}, \mathcal{F}}(\upvarphi) )}$
+
+\proposition $(\Im \upvarphi)^{\bot}= (\ker(~t^{\upvarphi})) \\  (\ker \upvarphi)^{\bot} = \Im(~t{\upvarphi})$
+
+\proposition rg$ \upvarphi = $ rg $~t^{\upvarphi}$ (si $E$ identifie à $E^{**}$ et vcversa pr $F$ )
+
+\proposition $~^t{(\upvarphi \circ \psi)} = ~^t{\upvarphi} \circ ~^t{\psi} \\ ~^t{\upvarphi^{-1} = (~^t{\upvarphi})^{-1}}$
+
+\proposition $\upvarphi_{F} \circ \upvarphi = ~^t{~^t{\upvarphi}} \circ \upvarphi_{E}$
+
+\subsection{Formes bilinéaires}
+
+\proposition \term{Forme bilinéaire} \\ si $\forall x \; \in \; E,
+\begin{array}{rcl}
+E &\to& K\\
+y &\mapsto & \upvarphi(x,y)
+\end{array}  \; \upvarphi(x,.) \;  est  \; \;   . $ \term{f l} \\
+si $\forall y \; \in \; E,
+\begin{array}{rcl}
+E &\to& K\\
+x &\mapsto & \upvarphi(x,y)
+\end{array}  \; \upvarphi(.,y) \;  est  \; \;   . $ \term{f l}
+
+\proposition $\forall \; x,y \; \in \; E, $ \term{f b. symétrique} $\upvarphi(y,x)= \; \upvarphi(x,y$ et \term{f b. alt. } $\upvarphi(y,x)= - \upvarphi(x,y)$
+
+\definition $X= \sum \; x_i\; e_i, \; \; Y= \sum y_j \; e_j \; \; \upvarphi(X,Y)= \upvarphi(\sum x_i \; e_i, \sum x_j \; e_j) = \sum_{1 \leq i \leq j \leq n} x_i \; x_j \upvarphi (e_i,e_j)$
+
+\definition mat$ (\upvarphi(e_i \; e_j))_{1 \leq i \leq j \leq n} \coloneqq Mat_{\mathcal{E}(\upvarphi)}$
+
+\definition $a_{ij}= \upvarphi(e_i, e_j), \; A=(a_{ij}=Mat_{\mathcal{E}}(\upvarphi))$
+
+\definition $ \forall x,y \; \in \; E, \upvarphi(X,Y)= \sum a_{ij} \; x_i \; x_j = ( x_1 \; \cdots \; x_n ) \; A \; \begin{pmatrix}
+y_{1} & \\
+\vdots & \\
+y_{n} &
+\end{pmatrix}$
+
+\proposition $\dim \mathcal{B}(E)=n^2 , \; \; \dim \mathcal{S}(E)= \dfrac{n(n+1)}{2} , \; \; \dim \mathcal{A}(E)= \dfrac{n(n-1)}{2}$
+
+\proposition $\mathcal{B}(E)= \mathcal{S}(E) \oplus \mathcal{A}(E)$
+
+\proposition $P= P_{\mathcal{E} \; \to \; \mathcal{E}^{'}} , \; A = Mat_{\mathcal{E} (\upvarphi )} \longrightarrow A^{'}= ~^t{P}.A.P$
+
+\subsection{Formes quadratiques}
+
+\definition $Q:E \to K \; $ \term{forme quadratique si} \\ $\bullet Q(\lambda v) = \lambda^{2} \; Q(v) \\  \begin{array}{rcl}
+b_Q: E \times E &\to& K\\
+(x,y) &\mapsto & \dfrac{1}{2}(Q(x+y)-Q(x)-Q(y)) \textbf{ est f l}
+\end{array} $.
+
+\definition $b_Q : $\term{f l sym} associé à $Q$ ou \term{forme polaire}de $Q$.
+
+\proposition Formes quadratiques sur E: $Q(E)  \\  \begin{array}{rcl}
+\mathcal{P}: Q(E)&\to& \mathcal{S}(E)\\
+Q &\mapsto & b_Q \text{ est linéaire}
+\end{array} \\ $.
+
+\definition $( \mathcal{P}: \text{polarisation} \; \text{ou} \; \text{morphisme} \; \text{de} \text{polarisation} )$
+
+\lemme $\mathcal{P}$ est un isomorphisme de $Q(E)$ sur $\mathcal{S(E)}$  d'inverse        $ \\  \begin{array}{rcl}
+\mathcal{D} : \mathcal{S}(E)&\to& \mathcal{Q}(E)\\
+\upvarphi &\mapsto & q_{\upvarphi}
+\end{array} \\ $
+
+\definition $q_{\phi} \in Q(E) $ forme quad associé à $\upvarphi  ( q_{\upvarphi= \mathcal{D}(\upvarphi})$
+
+\proposition $Mat_{\mathcal{E} (Q) \coloneqq Mat_{\mathcal{E}} (b_Q})$
+
+\subsection{Ecriture d'une forme quadratique ds une base}
+
+\definition $\mathcal{E}= (e_1, \cdots, e_n) , \; Mat_{\mathcal{E}}(Q)= (a_{ij})_{1 \leq i \leq j \leq n} , \; a_{ji} = a_{ij} \\ Q(X) = \sum a_{ij} x_i \; x_j = \sum a_{ij} \; x_{i}^{2} + 2\; \sum a_{ij} \; x_i \; x_j $
+
+\theoreme E dimension finie toute forme quad. diagonalisable.
+
+\subsection{Bases Orthogonales}
+
+\definition $ x \bot_{\upvarphi} y $ si $ \upvarphi(x,y)=0$ \; \; \; | $ x \bot_{\upvarphi} y \Longleftrightarrow y \bot_{\upvarphi} x$
+
+\definition Base $ \mathcal{E} $ orthogonal si $ e_i \; \bot \; e_j \; \forall i \neq j, \; 1 \leq i,j \leq n$,  mat forme $ \mathcal{E}$ est diagonale.
+
+\corollaire Toute forme quad. E, fini, admet des bases orthogonales.
+
+\subsection{Formes quadratiques positives}
+
+\definition Forme quad positive si $ \forall \; x \; \in \; E, Q(x) \geq 0$
+
+\definition Forme quad définie (positive) si $ \forall x \in E, Q(x) =0 \implies x=0$
+
+\proposition Q positive $ \Longleftrightarrow$ pour toute base Q-orthogonal, $ Q(e_i) \geq 0$
+
+\definition Un \term{espace euclidien} (E dim finie) avec forme quad. Q, ici $b_Q$ est appelé \term{produit scalaire}.
+
+\definition Dans espace euclidien, base $ (e_1, \cdots , e_n) $ orthonormée si orthogonale et $Q(e_1) = \cdots = Q(e_n)= 1$
+
+\corollaire Un espace euclidien admet bases orthonormées.
+
+\subsection{Classification des formes quadratiques dans $\mathbb{C}$ et $\mathbb{R}$}
+
+\definition $ \ker Q = \ker \upvarphi = {x \in E | \; \forall y \; \in \; E, \upvarphi(x,y)=0}$
+
+\lemme $ \ker Q $ sev de E, $ \dim Q = n-r; \; r=$rang$ Mat_{\mathcal{E} }(Q) \; \forall$ base.
+
+\definition rang $  Q= $rang $ Mat_{\epsilon}(Q) \; \; $ et $ $rang $ Q = $rang $ \upvarphi = n - \dim \ker \upvarphi $
+
+\definition $Q$ est une forme \term{non-dégénérée} si rang$ (Q)=n$ ou si $ \ker \upvarphi = \{0 \}$
+
+\definition $Q $ et $Q'$ sont équivalents si $ \exists $ isomorphisme $ h: E'=E, Q'=Q \circ h \\ \exists \; $ bases $ \mathcal{E}, \mathcal{E}^{'}, Mat_{\mathcal{E}}(Q)=Mat_{\mathcal{E}^{'}}(Q) \\ \forall \; $ bases $ Mat_{\mathcal{E}^{'}}(Q^{'})= ~^t{T}. Mat_{\mathcal{E}}(Q). T$
+
+\subsubsection{Classification sur $\mathbb{C}$}
+
+\theoreme Toute forme quad. sur $\mathbb{C}$ s'écrit $ \begin{pmatrix}
+\mathds{1} & 0\\
+0 & 0
+\end{pmatrix}$
+(où $r=$ rang $Q$)
+
+\corollaire 2 formes quadratiques sont équivalentes ssi $ \dim E = \dim E^{'} $ et rang $Q$ = rang $Q^{'}$
+
+\proposition Sur $\mathbb{C}, \exists \; n+1$ classes d'équivalences de forme quad. distinguées par rang
+
+\subsubsection{Classification sur $\mathbb{R}$}
+
+\theoreme Sur $\mathbb{R}, \exists \;$ unique mat diagonale $\begin{pmatrix}
+\mathds{1} & 0 & 0\\
+0 & - \mathds{1} & 0\\
+0 & 0 & 0
+\end{pmatrix}$
+où $q=r-p, r=$ rang $Q$
+
+\proposition $(p,q)=(p_Q,q_Q)$ signature de $Q$
+
+\corollaire 2 formes quad. sont équivalentes ssi même signature.
+
+\definition $ (p,q)=(p_Q,q_Q): $ \term{signature de Q} ( invariant classifiant les formes quad sur ev réel $ \dim n$
+\proposition $2$ formes quad. sont équivalentes ssi même \term{signature}
+\subsection{Orthogonalite }
+\definition soit E sur $\mathbb{K}$ ev, $\upvarphi \; \mathcal{S}(E), Q= q_{\upvarphi}, q_{\upvarphi} \; \in \; Q(E)$ \\ pour $A \; \subset \; E, A^{\bot}= \{ x \; \in \; E | \upvarphi(x,y)=0, \forall \; y \; \in A \; \}  $
+
+\theoreme $ (i) A^{\bot}  $ sev , $  \ker \upvarphi \; \subset A^{\bot}: \varnothing^{\bot}= \{ \varnothing \}^{\bot}=E, \; \; E^{\bot}= \ker \upvarphi , A \subset (A^{\bot})^{\bot} \\ (ii) \; A \subset B \subset E \longrightarrow \ker \upvarphi \; B^{\bot} \subset \; A^{\bot} \\ (iii) \; A \subset E, A \neq \varnothing \longrightarrow A^{\bot} = \Vect(A)^{\bot}, \\ si A= \{ v_1, \cdots, v_k \} , F = \Vect \{ v_1, \cdots , v_k \} \longrightarrow F^{\bot} = A^{\bot}= \bigcap_{i=1}^{k} \; v_{i}^{k}$
+
+\theoreme Sur orthogonal, F sev de E, $  \dim F^{\bot} = n - \dim F + \dim (F \wedge \ker \upvarphi ) \\ (ii) n \leq \dim F + \dim F^{\bot} \leq n + \dim \ker \upvarphi \\ (iii) (F^{\bot})^{\bot} = F + \ker \upvarphi, (F^{\bot})^{\bot} \iff \ker \upvarphi \subset F \\ $ De plus si $ \upvarphi $ non-dégénéré ie $\ker \upvarphi = \{ 0 \} \longrightarrow \\ (i) \dim F^{\bot}= n- \dim F \\ (iii) \; (F^{\bot})^{\bot}=F \\ (iv) \; \upvarphi_{F}:$ restriction de $ \upvarphi $ à $ F \times F, \; \upvarphi_F: \begin{array}{rcl}
+\upvarphi_F = F \times F &\to& \mathbb{K}\\
+(x,y) &\mapsto & \upvarphi(x,y)
+\end{array}$ $ \longrightarrow \upvarphi_F : $ aussi forme linéaire symétriq \\ $ \upvarphi_F \in \mathcal{S}_{F}: \bullet \ker \upvarphi_F = F \wedge F^{\bot}= \ker \upvarphi^{\bot} \\ \bullet E = F \oplus F^{\bot \iff F \wedge F^{\bot}} \iff \{ 0 \} \iff \upvarphi_F $ non dégénéré $ \iff \upvarphi_{F}^{\bot}$ non-dégénéré.
+
+\newpage
+
+\subsubsection{Projections orthogonales}
+\definition $ E = K \oplus L, \forall v \; \in E, \exists \! \; (x,y) \; \in E \; K \times L | s=x+y$ et \term{proj-linéaire} $  p_{K}^{L} $ ou $ pr_{K}^{L}$ de $S$ par $S$ sur $K$ parallèlement à $L: p_{K}^{L}(v)=x$.
+
+\proposition $ p=p_{K}^{L}:E \longrightarrow E $ satisfait : $ (i) \; p \; \in \mathcal{L}(E), \ker p = L, \Im K, p_{K}= id_K$ ( restriction de $p$ à $K \; (ii) p^2= p (p^2=p \circ p)) \\ (iii) \; q=id_{E} - p \longrightarrow p+q = id_{E}, p^2=p,q^2=q,pq=qp=0 \\ $ Réciproquement : $p$ endormophisme linéaire $  p \in \; \mathcal{L}(E)  $ tq $p^2=p \longrightarrow p$ est projection linéaire $ p_{K}^{L} $ où $K= \Im p $ et $ L= \ker p$
+
+\definition Une projection linéaire $p_{K}^{L} $ est orthogonale $\iff K \bot L$. De façon équivalente, un endomorphisme linéaire $p \in \mathcal{L}(E)$ est proj. orthogonale $ \iff p^2=p$ et $ E= \ker p \oplus^{\bot} \Im p$ (somme directe orthogonale)
+\definition F sev de E est non dégénéré si $Q_F = Q_{|F} $ (ou $ \upvarphi_F = \upvarphi_{|F \times F}$ ) est forme non dégénéré. \\ F non dégénéré $ \iff F \wedge F^{\bot}= \{ 0 \} \iff E = F \oplus F^{\bot}$
+\proposition F sev de E, $(i)  si F $ non-deg $ \longrightarrow \exists ! $ proj. orhtogonale $ p $ d'image $F : \underset{not}{=} p_F (  \text{ou} p_{F}^{R} \\ (ii) \text{si en plus} Q \text{est forme non-deg } \longrightarrow  $ réciproque est vraie
+\subsubsection{Calcul projection orthogonale }
+\proposition F sev non-deg, $ (a_1, \cdots, a_k) $ base orhtogonale de $F$. Alors $Q(\omega_i)= \upvarphi(u_i,u_i) \neq 0 \; \; \forall i=1, \cdots , k \;$ est $ \forall x \; \in \; E, p_{F}^{r}(x)= \sum_{i=1}^{k} \dfrac{\upvarphi(u_i,x)}{\upvarphi (u_i,u_i}$
+
+\subsection{Groupe orthogonal}
+
+\definition Un endomorphisme $f \; \in \; \mathcal{L}(E)$, est def \term{orthogonal} ( ou Q-orthogonal ou $\upvarphi$orthogonal ) s'il préserve $Q$ ou ( $\upvarphi$): \\  $ \forall x \; \in \; E, Q(f(x))=Q(x)$ ( ou $ \forall \; x,y \; \in E, \upvarphi(f(x),f(y))= \upvarphi(x,y)$. On note $ \mathcal{O}(E)$ ou $ \mathcal{O}(E,Q),\mathcal{O}(E, \upvarphi), \mathcal{O}(\upvarphi), $ \term{l'ens des endom. orthogonaux} de $ (E,Q)$
+
+\proposition $(i) \; f \; \in \mathcal{O}(E) \; \longrightarrow \; f$ inversible \\ $ (ii) \mathcal{O}(E) \;$ est un groupe.
+
+\definition soit F un ss-espace non-deg de E $\longrightarrow E = F \oplus F^{\bot} $ et les 2 projections orthogonales $ p_F, p_{F^{\bot}}$ sont def, tq $ p_F + p_{F^{\bot}} =id_E$. On def la \term{symétrie orthogonale } $s_F$ par: $\forall v, \; \in \; E, \exists \; ! \; (x,y) \; \in \; F \times F^{\bot}, v=x+y $ et on pose $s_F(v)=x-y$
+
+\commentaire $s_F = p_F - p_{F^{\bot}}= id_E - 2 p_{F^{\bot}} = 2 p_F - id_E$ \\ Lorsque F est un \term{hyperplan}, $s_F:$réflexion orthogonale \\ Toute symétrie orthogonale est un endom. orthogonal \\ Quand $F \subsetneqq E, p_F$ proj orthogonale n'est pas endom orthog.
+
+\subsection{Caractérisation de $f \in \mathcal{O}(E)$ par matrices}
+
+\commentaire $\mathcal{E}, \; base \; f \; \in \mathcal{L}(E), G = Mat_{\mathcal{E}}(Q) $ alors $f \; \in \mathcal{O}(E) \iff ~^tAGA=G \iff \upvarphi(f(e_i),f(e_j)) = \upvarphi(e_i,e_j) \; \; \forall i,j=1, \cdots, n, \mathcal{E}=(e_1, \cdots, e_n)$ \\ Cas particulier : $\begin{pmatrix}
+\mathds{1} & . & O\\
+. & \ddots & .\\
+O & . & \mathds{1}
+\end{pmatrix}$, $(E,Q)$ est un espace euclidien muni base orthornormée $\mathcal{E}, $ on a $f \; \in \; \mathcal{O}(E) \iff ~^tAA= \mathds{1}_n \iff A^{-1}=~^tA \; \iff A $mat orthogonale
+
+\theoreme (Cartau-Dieudonné) \\ Tout élément de $\mathcal{O}(Q)$ est produit d'au plus $n$ \term{réflexions orthogonales}
+
+\theoreme (Orthogonalisation de Gram-Schmidt) \\ $(v_1, \cdots, v_n)$ base de $E, \; \forall i=1, \cdots , n-1, E_i = \Vect(v_1, \cdots , v_i)$ est \term{non-dégénéré} alors les $n$ vecteurs : \\ $u_1= v_1, \; u_2 = v_1 - \dfrac{\upvarphi(u_1, v_2)}{\upvarphi(u_1,u_1)}u_1, \cdots , u_k = v_k - \sum_{i=1}^{k-1} \; \dfrac{\upvarphi(u_1, v_k)}{\upvarphi(u_i,u_i)} u_i$ sont bien def et forment \term{base orthogonale}. \\ $\mathcal{U} = ( u_1, \cdots , u_k)$ de E, dans cette base $Q$ s'écrit : \\ $Q( \sum_{i=1}^{n}) = \Delta_1 x_{1}^{2} + \dfrac{\Delta_2}{\Delta_1} x_{2}^{2} + \cdots + \dfrac{\Delta_n}{\Delta_{n-1}} x_{n}^{2}   ,$ où $\Delta_k = det \; A_k, \; A_k = Mat_{(v_1, \cdots , v_k)} (Q|_{F_{k}}$.
+
+\commentaire $\mathcal{U} $ s'apelle \term{orthogonalisée} $G-S$
+\commentaire $Q|_{F_{n-1}}$ non-dég $\longrightarrow$ le rang de $Q$ est au moins $n-1 \longrightarrow \rang Q = n-1$ ou $n$, on ne suppose pas que $\Delta \neq 0$
+
+\corollaire ( Critère de Sylvester ) \\ $E, \mathbb{K}-ev, \dim E = n, \upvarphi \; \in \in \mathcal{L}(E), \upvarphi = b_Q, Q \; \in \; Q(E), (v_1, \cdots, v_n) $ base de $E, a_{ij} = \upvarphi(v_i,v_j)$ pour $1 \leq i,j \leq n, F_k = \Vect(v_1, \cdots , v_k), A_k = (a_{ij})_{1 \leq i,j \leq k}, A_k = Mat_{(v_1, \cdots , v_k)} (Q|_{F_k}), \Delta_k = det A_k \; $ alors : \\ $1) \upvarphi (ou Q)  $ est def \term{positive} $ \iff \Delta_1 >0, \cdots , \Delta_n >0$ \\ Supposons $\Delta_1 \neq 0, \cdots , \Delta_{n-1} \neq 0, \Delta_0 = 1$ alors : l'indice négatif $q$ de $Q$ ( c'est la 2° composante de la signature $(p,q) de Q$ est le \term{nbr de changements de signe} dans la suite $\Delta_0,\cdots , \Delta_n$ ( on dit ( $ \Delta_i$ ) possède un changement de signe au rang $i$ si $\Delta_i . \Delta_{i-1}<0$ \\ 3) $\upvarphi $ est def \term{négative} $\iff \forall i=1, \cdots , n, \Delta_i = (-1)^{i} | \Delta_i \neq 0$ \\ $ A = \begin{pmatrix}
+A_{1} & A_{2} & A_{3} &  &  &  & A_{n} &  & \\
+ &  &  &  &  &  &  &  & \\
+a_{1} & a_{12} & a_{13} &  & \cdots  &  &  &  & \\
+a_{21} & a_{22} & a_{ \begin{pmatrix}
+A_{1} & A_{2} & A_{3} &  &  &  & A_{n} &  & \\
+ &  &  &  &  &  &  &  & \\
+a_{1} & a_{12} & a_{13} &  & \cdots  &  &  &  & \\
+a_{21} & a_{22} & a_{ \begin{array}{{>{\displaystyle}l}}
+23\\
+\end{array}} &  &  &  &  &  & \\
+a_{31} & a_{32} & a_{33} &  &  &  &  &  & \\
+ &  &  &  & \ddots  &  &  &  & \\
+ &  &  &  &  &  &  &  & \\
+ &  &  &  &  &  & a_{nn} &  & 
+\end{pmatrix}$ les $A_k = det A_k$ s'appellent \term{mineurs principaux dominant.}
+
+\section{Espaces euclidiens }
+\subsection{Norme, distance, angles, volumes}
+
+\definition Un $\mathbb{R}$ ev-E muni FB sym $\upvarphi$ est appelé \term{espace euclidien} si $\dim E < \infty$ et $\upvarphi$ def positive. \\ $\upvarphi $ est appelé \term{produit scalaire.} $\scalprod{x}{y} $ $ := \upvarphi (x,y) \; \forall x,y \; \in \; E$. \\ Par def, $\forall x \; \in \; E, \scalprod{x,x} \geq 0  $ et $ \scalprod{x}{x} = 0 \iff x=0$. On note $\sqrt{\scalprod{x}{x}}= \|x\|$. On a $\forall x \; \in E, \|x\|=0 \iff x =0$
+
+\proposition $\forall x,y \; \in E, \lambda \in \mathbb{R}, $on a: \\ $(i) \|\lambda x \|= |\lambda | \|x\| \\ (ii) \|x+y\|^2 = \|x\|^2 + 2 \scalprod{x}{y} + \|y\|^{2}  $ \\ (si $x \bot y \longrightarrow \|x+y\|^{2} = \|x\|^{2} + \|y\|^{2}$ (TH de Pythagore) \\ $(iii) \|x+y\|^{2} + \|x-y\|^{2} = 2 ( \|x\|^{2} + \|y\|^{2})$ ( inégalité du parallélogramme) \\ $(iv) | \scalprod{x}{y}) | \leq \|x\| \|y \|$ ( Inégalité de Cauchy-Scwhartz) \\ $(v) \|x+y\| \leq \|x\| + \|y\|$ ( inégalité de Minkowski )
+
+\definition Norme classique $N(x)$
+
+\definition soit $X \neq \empty $. On appelle \term{distance ( ou métrique )} sur $X$ toute fonction $d:X \times X \longrightarrow R \geq 0$ tq: \\ $(i) \forall x,y \in X, d(x,y)= d(y,x) \\ (ii) d(x,y)=0 \iff x=y \\ (iii) \forall (x,y,z) \in X^{3}, d(x,z) \leq d(x,y) + d(y,z) $ \\ \\ Un espace métrique est un ens. muni d'une métrique. La fonction $E \times E \longrightarrow \mathbb{R} \geq 0, (x,y) \longrightarrow \|x-y\| $ est une \term{distance}.
+
+\definition soit $(E, \scalprod{.}{.}, $ un \term{espace euclidien}, la fonction $E \longrightarrow \mathbb{R}_{>0}, x \longrightarrow \|x\|$ s'appelle \term{norme euclidienne} sur $E$ et la fonction $d:E \times E \longrightarrow \mathbb{R}_{>0}, (x,y) \longrightarrow \|x-y\|$ s'appelle \term{distance euclidienne} sur $E$.
+
+\commentaire Tout espace euclidien possède une base orthonormée et est donc isomorphe à $\mathbb{R}^n$ muni de son porduit scalaire standard
+
+%inégalités avec vecteurs PS, NE, ICS, IM
+
+\subsection{Angles}
+
+\corollaire $\forall x,y \in E \backslash \{0 \} $ par Cauchy-Schwarz, $ \mid \dfrac{\scalprod{x}{y}}{\|x\| \|y\|} \mid \leq 1 $
+
+\definition \term{L'angle} $( \wang{x,y})$ entre deux vecteurs non nuls de $E$ est def comme unique réel $\theta \in [0, \pi]$ tq \; $\cos \theta = \dfrac{\scalprod{x}{y}}{\|x\| \|y\|} $. On peut écrire $( \wang{x,y}) = \arccos \dfrac{\scalprod{x}{y}}{\|x\| \|y\|}$ \; ( $\arccos $ désigne la valeur principale de $\arccos$ comprise entre $0 $ et $\pi$). \\ $\arccos t = \pm \arccos t + 2k \pi , k \in \mathbb{Z}$ . \\ On def aussi les angles entre 2 sous-espaces vectoriels  $F_1,F_2 \neq 0 $ de $E: $ \\ $(\wang{F_1,F_2}) = \inf \{ (\wang{v_1,v_2} | \; v_1 \in F_1 \backslash \{0 \},  v_2 \in F_2 \backslash \{0 \}\}$ et l'angle entre un vecteur non nul est un sous-espace vectoriel de $F : (\wang{v,F})= \inf \{ (\wang{v,w}) \; | w \; \in F \backslash {0}  \}$
+
+\commentaire Par exemple, l'angle entre 2 droites $F_1, F_2$ de vecteurs directeurs $v_1,v_2 : \\ (\wang{F_1,F_2}) = \min \{ (\wang{v_1,v_2}), (\wang{v_1,-v_2})  \} = \min \{ \theta, \pi - \theta \} \; \; où \theta= (\wang{v_1,v_2})$
+
+\subsection{Volumes}
+
+\definition $(i) $Pour une famille $\mathcal{V}=(v_1, \cdots , v_k) $ de vecteurs de $E$, le parallélépipède engendré par $ v$ est def par : \\ $\Pi = \Pi(\mathcal{V}) = \{ \sum_{i=1}^{k} \; t_i v_i \; | \; (t_1, \cdots, t_{\alpha }) \; \in [0,1]^{\alpha}  \}  \\ (ii) $Le k-volume $ v \circ l_k (\Pi(\mathcal{V})) $ est def par  $ : \\ 1) $ si $ \mathcal{V} $est \term{liée} $  , v \circ l_k(\Pi(\mathcal{V}))=0 \\ 2) $ si $ \mathcal{V} $ est  \term{libre}$ , v \circ l_k(\Pi(\mathcal{V})) = \mid \det P_{\mathcal{E}_{F \longrightarrow v}}  \mid    $ où $\mathcal{E}_F$ est base orthonormée qq de $F= \Vect(v) $ et $P_{\mathcal{E}_{F \longrightarrow v}}$ désigne la mat de passage de $\mathcal{E}_F$ à $v$. \\ $P_{\mathcal{E}_{F \longrightarrow v}} = (p_{ij})_{1 \leq i,j \leq k} \forall j=1, \cdots , k, \; v_j = \sum_{i=1}^{k} p_{ij} e_i$
+
+\lemme $\mid \det P_{\mathcal{E}_{F \longrightarrow v}} \mid$ ne dépend pas choix de $\mathcal{E}_F$
+
+\corollaire ( de la démo du lemme ) \\ La mat de passage $A$ entre 2 bases orthorn. est une mat \term{orthogonale}: $A$ est \term{inversible} et $A^{-1}= ~^tA$. Le \textbf{déterminant d'une mat orthogonale} ne peut prendre que deux valeurs : $1$ et $-1$.
+
+\subsection{Groupe orhtogonale d'un espace euclidien}
+
+\definition soit $E$ un ee $\dim E =n$. On note $\mathcal{O}(E)$ l'ens des endomorphismes orthogonaux de $E$. $\mathcal{O}(E)=  \mathcal{O}(E, \scalprod{.}{.})= \{ x \in \mathcal{L}(E) \; | (x,y) \in E \times E, \scalprod{u(x)}{u(y)}= \scalprod{x}{y} \}$ . C'est un groupe. L'ens des mat orhtogonales de taille $n$ est def par : $ \mathcal{O}(n)= \{ A \; \in \; \mathcal{M}_n(\mathbb{R}) \; | ~^tAA = \mathds{1}_n \} \subset GL(n, \mathbb{R})$ un sous-groupe du groupe $GL(n, \mathbb{R})$ des mat inversibles de taille $n$.
+
+\definition $E$ espace euclidien ( ee ) $\dim n \geq 1, \mathcal{E} = ( \mathcal{E}_{1} , \cdots , \mathcal{E}_{n}) $ base orthonormée $\Rightarrow $
+$\begin{array}{rcl}
+\mathcal{O}(E) &\to& \mathcal{O}(n)\\
+f &\mapsto & Mat_{\mathcal{E}}(f)
+\end{array}$ est un \term{isom. de groupes}. Pour chaque $n \geq 1$, on a un seul groupe orthor euclidien à isom près.
+
+\definition $\mathbb{O}(n)$ identifié à $\theta(\mathbb{R}^{n},\scalprod{.}{.} )$
+
+\definition \term{Groupes spéciaux orthogonaux}: \\ $SO(E)= \{  u \; \in \mathcal{O}(E) | det u =1  \}   \\ SO(A)= \{  A \; \in \mathcal{O}(n) | det A =1  \}  $
+
+\definition Pour $A \in \mathcal{O}(n), det = \pm 1\\ \mathcal{O}(E) = SO(E) \bigsqcup \mathcal{O}^{-}(E)  \\ \mathcal{O}(n) = SO(n) \bigsqcup \mathcal{O}^{-}(n) \\  $ où $\mathcal{O}^{-}(E) = \go(E) \backslash SO(E) = \{ u \; \in \go(E) | det u = -1\} \\ \go^{-}(n)= \{ u \; \in \go(n) | det u= -1 \}$
+
+\commentaire \bccrayon $SO(E) \subset \go(E)$ est un ss-groupe (mais pas $\go^{-}(E) \\ \forall \tau \; \in \go^{-}(E), \go^{-}(E) = \tau . SO(E). \tau  $
+
+\commentaire Le groupe quotient $\go(E) \diagup SO(E)$ est isom au groupe d'ordre 2 : $\mu_{2} = \{  \pm 1, \go (E) \diagup SO(E) \approx  \{ \pm 1 \}   \}$, cela suit du TH d'isom pr groupe quotient : on considère morphisme du déterminant, \\ $\begin{array}{rcl}
+det : \go(E)  &\to& \mathbb{R}^{*})\\
+u &\mapsto & det u
+\end{array}$, son image est $\mu_{2} = \{ \pm 1 \}$ \\ Donc $\go(E) \diagup \ker ( det ) \approx \mu_{2} $ or $ \ker ( det) = SO(E) \\ \bullet n =1: \dim E = 1 \Rightarrow \go (E) \approx \go (l) = \{  \lambda \; \in \; \mathbb{R}^{*} | \lambda^2 = 1\} = \{ \pm 1  \} = \mu_2 \\ SO(1) = \{ 1 \} \; $ groupe trivial avec élément neutre , \term{mat taille 1,} $A(\lambda ) tq \; \lambda^2 = t~{A}A = \mathds{1}_{n} \\ \bullet n =2: $ E plan eucli, $\gee = (e_1, e_2) $ une base ornee de $E, u \; \in \mathcal{L}(E), A= \begin{pmatrix}
+a & b\\
+c & d
+\end{pmatrix}, A= Mat_{\gee}(u) \in \mathcal{M}_2 ( \mathbb{R}) \Rightarrow \\ 1) \; u \in SO(E) \iff \; \exists \theta \; \in \; \mathbb{R}, A= \begin{pmatrix}
+\cos \theta & - \sin \theta\\
+\sin \theta & \cos \theta
+\end{pmatrix} \\ 2) \; u \; \in \; \go^{-}(E) \iff \; \exists \; \theta \; \in \mathbb{R}, A = \begin{pmatrix}
+\cos \theta  & \sin \theta \\
+\sin \theta  & - \cos \theta
+\end{pmatrix} $
+
+%mettre en couleur
+\commentaire  \bcplume ${\rt} = \begin{pmatrix}
+\cos \theta  & - \sin \theta \\
+\sin \theta  &  \cos \theta
+\end{pmatrix}  $ mat de rotation d'angle $\theta $ ds plan eucl $\mathbb{R}^{2}$
+
+\proposition soit E un plan eucl, un élt $u \; \in \; SO(u) $ donné par même matrice ${\rt} $ ds 2 bases ornee liées par mat de passage ornee tq $det P_{\gee \longrightarrow \gee ' } = -1$ et si $Mat_{\gee}(u) = {\rt}, Mat_{\gee^{'}}(u) = {\rt}^{'}  \Rightarrow \theta + \theta^{'} \in \; 2 \pi \mathbb{Z}$ et ${\rt}^{'}= ({\rt})^{-1}= \mathbb{R}^{- \theta}$
+
+
+\subsection{Orientation}
+
+%colorrrreeer
+\definition soit $V$ ev, dim finie, on peut diviser l'ens $\gb(v)$ de ttes les bases de $V$ en 2 parties disjointes, classe d'équivalence pr relation d'équivalence suivante : \\ pr $\gee, \gee^{'} \; \in \; \gb (v) , \gee \sim \gee^{'} \iff det P_{\gee \longrightarrow \gee^{'}} >0 $
+
+\definition Muni $V$ d'une orientation : c'est choisir laquelle de 2 classes, on appelle \term{classe des bases directes}, l'autre étant la classe des \term{bases indirectes}
+
+\commentaire On peut donner une orientation en précisant une base directe.
+
+%color
+\corollaire soit $E$ plan eucl orienté. On a alors un isomorph. canonique $x: SO(E) \longrightarrow SO(z)$ qui associe à chaque élément $u \in SO(E)$ sa matrice ${\rt}$ ds n'importe quelle base ornee, l'angle de rotation $\theta  [2 \pi ]$ \term{ne dépend pas choix base ornee directe }.
+
+\commentaire L'orientation standard du plan eucl standard $(\mathbb{R}^{2}, \scalprod{.}{.})$ peut ê décrit comme: une base $(u,v)$ de $\mathbb{R}^{2}$ est directe si $v$ s'obtient par la rotation de $u$ d'angle $90°$ dans sens contraire des aiguilles d'une montre.
+
+\subsection{Sens géométriques des éléments de $\go^{-}(E) : \dim 2$}
+
+\lemme Tt élément $u$ de $\go^{-}(E) a \{ 1,-1 \} $ pour spectre, donc s'écrit par $T= \begin{pmatrix}
+1 & 0 \\
+0  & -1
+\end{pmatrix} $ ds base convenable.
+
+\lemme Les vecteurs propres unitaires ( = de norme 1) de la mat $A= {\rt} T= \begin{pmatrix}
+\cos \theta  & \sin \theta \\
+\sin \theta  & - \cos \theta
+\end{pmatrix}$ sont $v_1 = \pm ( \cos \dfrac{\theta}{2}, \sin \dfrac{\theta}{2}) $ de vp $1$ \\ $v_2= \pm (- \sin \dfrac{\theta }{2}, \cos \dfrac{\theta}{2})$ de vp $-1$.
+
+\proposition soit $E$ un plan eucl, les élts de $\go^{-}(E)$ sont les \term{réflexions orthogonales} $\forall u \in \go^{-}(E),$ il y a exactement 4 bases ornee de $E$ ds lsquels $u$ s'écrit par la mat $T = \begin{pmatrix}
+1 & 0 \\
+0  & -1
+\end{pmatrix} $. Si $E$ est orienté, deux de ces bases sont \term{directes}, 2 autres \term{indirectes}.
+
+\section{Espaces euclidiens de $\dim = 3$}
+
+\subsection{ Produit Vectoriel}
+
+\commentaire soit $E$ un ee de $\dim 3$ muni d'une \term{orientation}
+
+%color
+\commentaire \bcplume  $\gb (E) \supset \gb_{\go_{n}}(E) = \gb_{\go_{n}}^{+} \oud \gb_{\go_{n}}^{-}$ \\ toutes les bases , bases ornee, bases ornees directes, bases ornees indirectes \\ $ \gb(E)= \gb_{\go_{n}}^{+}  \oud \gb_{\go_{n}}^{-}  $
+
+\definition soit $\gu=(u,v,w)$ une famille de 3 facteurs de $E$. Le réel $det_{\gee}(\gu)$ ds une base $\gee \; \in \; \gb_{\go_{n}}^{+} (E)$ , \term{ne dépend pas } $\gee$ et est appelé \term{produit mixte de } $\gu$. \\ $[\gu ]= [u,v,w]$
+
+\proposition ( Pptés produit mixte) \\ Le produit mixte $\mathcal{P}: E^3 \longrightarrow \mathbb{R},  (u,v,w) \mapsto [u,v,w]$ est trilinéaaire et antisymétrique. Pr $\gu \; \in \; E^3, on a :  \\ (i) \; \gp (\gu ) = 0 \iff \gu  $ est lié. \\ (ii) $\; \gp ( \sigma ( \gu )) = \gee ( \sigma ). \gp( \gu) \\ ep: \gp (u,v,w) = - \gp (v,u,w) = \gp ( w,v,u) \\ (iii) \; \gu \; \in \; \gb_{\go_{n}^{+}} \Rightarrow \gp ( \gu ) = \pm 1 $
+
+\lemme soit $V$ un ee $\Rightarrow $ $\begin{array}{rcl}
+\Psi : V  &\to&  V^{*}\\
+x &\mapsto \scalprod{x}{.}
+\end{array}$ est isom canonique de $V$ sur $V^{*}$.
+
+\definition soit E ee orienté $\dim 3$. Le produit vectoriel de 2 vecteurs $u,v \in E$ est l'unique vecteur de $E$, noté $u \et v$ tq $ \forall \; w \; \in E, [u,v,w]= \scalprod{u \et v}{ w}$. \\ En utilisant l'isom canonique $\Psi : E \longrightarrow \approx E^{*}, on a : $ \\ $u \et v= \Psi^{-1}([u,v,\bullet])$ \\ où $[u,v,\bullet] \; \in \; E^* $ est la \term{fl} $E \longrightarrow \mathbb{R}, w \mapsto [u,v,w]$
+
+%% UPDATE OF SUNDAAAAAY
+
+\proposition ( pptés produit vectoriel) \; soit $E$ ee orienté $\dim \; 3$ \\ $ 1. \; \;$ L'appli $ E \times E \to E, (u,v) \; \mapsto u \et v $ est \term{bilinéaire et antisymétrique} \\ $2) \; \forall u,v \; \in E, u \et v =0 \Leftrightarrow   $ \term{u,v st colinéaires}. \\ $3) \; \forall u,v \; \in \; E, u \et v \bot u, u \et v \bot v  \\ 4) \;  $ si $u,v $ \term{ne st pas colinéaires} $  \Rightarrow  (u,v, u \et v) \; \in \; {\gb}^{+}(E) \\ $ si de plus, $ \| u \| = \| v \| = 1, u \bot v \Rightarrow (u,v,u \et v) \; \in \; {\gb}^{+}_{\text{on}}(E)  \\ 5) \;  $ si $ \ge = (e_1, e_2, e_3) \; \in \; {\gb}^{+}_{on}(E)  $ alors $  \forall \; i,j \; \in \{1,2,3 \}  \\  e_i \et e_j =  \begin{array}{rcl}
+0 \; \text{si } i=j \\
+{\ge}_{ijk}  \text{où } \{ i,j,k \} = \{ 1,2,3 \}
+\end{array} \\  {\ge}_{ijk}= \ge \begin{pmatrix}
+1 & 2 & 3\\
+i & j & k
+\end{pmatrix}  $ est la signature d'une permutation $ 6) \;$ si $ \ge = {\gb}^{+}_{on}(E),  {\[ u \]}_{\ge} = \begin{pmatrix}
+u_{1}  \\
+u_{2}  \\
+u_{3}
+\end{pmatrix}  , {\[ v \]}_{\ge} = \begin{pmatrix}
+v_{1}  \\
+v_{2}  \\
+v_{3}
+\end{pmatrix} \\  $ puis $  {\[ u \et v \]}_{\ge}= \begin{pmatrix}
+\begin{vmatrix}
+u_{1} & v_{2}\\
+u_{3} & v_{3}
+\end{vmatrix}  \\
+\begin{vmatrix}
+u_{3} & v_{3}\\
+u_{1} & v_{1}
+\end{vmatrix}  \\
+\begin{vmatrix}
+u_{1} & v_{1}\\
+u_{2} & v_{2}
+\end{vmatrix}
+\end{pmatrix} =\ \begin{pmatrix}
+u_{2} v_{3} \ -\ u_{3} v_{2}  \\
+u_{3} v_{1} \ -\ u_{1} v_{3}  \\
+u_{1} v_{2} -u_{2} v_{1}
+\end{pmatrix}   $
+
+\subsection{Endomorphismes orthogonaux ds ee E de $\dim \; 3$}
+
+\lemme Un \term{endomorphisme orthogonal} d'un ee E de $ \dim \; 3$ a tjrs \term{vp réelles} $ \pm 1 = $ \term{son déterminant}.
+
+\commentaire (vp complexes : vlrs abs $1$)
+
+\proposition soit E ee orienté $ \dim \; 3, u, \; \in \; {\go}(E), \lambda = det (u) = \{ \pm 1 \} \\$ alors $ \exists $ base $ \ge \; \in {\gb}^{+}_{on} (E) $ et $ \theta \; \in \mathbb{R},  {\text{Mat}}_{\ge}(u) = \begin{pmatrix}
+\lambda  & 0 & 0 & \\
+0 &  &  & \\
+0 &  & R^{\theta }
+\end{pmatrix}   $
+
+\definition $(i) \; $ Un axe de $E$ est une \term{droite vectorielle} orientée de E. Tt axe est dirigé par un unique vecteur unitaire. $ \\ (ii) \; $L'élément $ u \; \in \; SO(E)$ de matrice $ \begin{pmatrix}
+1 & 0 & 0\\
+0 &  & \\
+0 &  & R^{\theta }
+\end{pmatrix}  $ dans une base o.n. directe $ \ge = (e_1, e_2, e_3)$  de $E$ s'appelle rotation d'angle $\theta $ autour de l'axe dirigé par $e_1$
+
+\commentaire (Notation :) $ u= R^{\theta}_{v}, \forall \; v$ dirigeant l'axe  $ ( v = \alpha e, \alpha >0)   $
+
+\corollaire soit $u \in \; SO(E), u \neq {\text{id}}_{E} $ alors $u$ possède $2$ axes de rotation, ayant pr support la même droite vectorielle $\mathbb{v} E$, où $v \neq 0, $ l'un est dirigé par $v$ , l'autre par $-v$. \\ L'axe et l'angle $\[ 2 \pi \] $ st les élts caract. d'une rotation de $E$.
+
+\subsection{Détermination pratique des élts caractqs d'une rotation ds un ee orienté E:}
+
+\commentaire (Méthodoligie : ) soit $u \in SO(E), u \;  \neq {\text{id}}_{E} \\  1) \;$ On trouve vecteur propre $v$ de $u$ de vp $1= det u$ , solution de $u(v)=v  \\ 2) \;   $ Déterminer $ \cos \theta  $ par $ tr(u) = 1 + 2 \cos \theta \\ 3) \;  $ Déterminer le signe de $ \sin \theta $ qui coïncide avec \term{signe }  $  \[ x,u(x),v   \] \; \forall x \; \in E \backslash \mathbb{R}v  $, grâce Relation : $ \[ x,u(x),v  \] = \| v  \| ( \beta^2 + \gamma^2 ) \sin \theta ,$ où $ x= \alpha e_1 + \beta e_2 + \gamma e_3 ,  \ge = ( e_1,e_2, e_3) $ la base o.n directe dans $E$ tq $ e_1 = \dfrac{v}{ \| v \| } ,$ avec ce chemin $ u=R^{\theta}_{v} $
+
+\subsection{Endormorphismes orthogonaux ds ee qq }
+
+\theoreme soit E un ee de $ \dim n \geq 1 $ alors $ \exists $ une base o.n. de $E$ ds lqlle $ u $ s'écrit par mat : $ \\  \begin{pmatrix}
+1 &  &  &  &  &  &  &  & \\
+ & \ddots  &  &  &  & \emptyset  &  &  & \\
+ &  & 1 &  &  &  &  &  & \\
+ &  &  & -1 &  &  &  &  & \\
+ &  &  &  & \ddots  &  &  &  & \\
+ &  &  &  &  & -1 &  &  & \\
+ &  & \emptyset  &  &  &  & R^{\theta _{1}} &  & \\
+ &  &  &  &  &  &  & \ddots  & \\
+ &  &  &  &  &  &  &  & R^{\theta r}\\
+ &  &  &  &  &  &  &  & 
+\end{pmatrix} \; \theta_1 , \cdots , \theta_r \; \in \mathbb{R}, R^{{\theta}_{k}}=  \begin{pmatrix}
+\cos \theta _{k} & -\ \sin \theta _{k}  \\
+\ \sin \theta _{k} & \cos \theta _{k}  
+\end{pmatrix}   $
+
+\corollaire Ttes les \term{vp} de $  u \; \in \; \go (E) $ ds $ \mathbb{C} $ st de vlr abs. $1$.
+
+\lemme soit E ee de $  \dim n \geq 1, u \; \in \go(E), F \subset E $, un sev  \term{stable} par $ u(F) \subset F \Rightarrow u(F)=F$ et $ u(F^{\bot}) = F^{\bot}$
+
+\lemme soit $V$ un $ \mathbb{R} $ev de $ \dim n \geq 1, u \; \in \mathcal{L}(v) $ alors $ u $ a un sev de $ \dim 1$ ou $2$ .
+
+\lemme soit E un ee, $ u \; \in \go (E) $ alors $E$ est une somme directe orthogonale de sev \term{stables} par $ u  $ de $\dim 1  $ ou $2$.
+
+\subsection{Endomorphismes adjoints et symétriques}
+
+\definition ( Proposition) soit E ee et $  u \; \in \mathcal{L}(E) $ alors : $ \\ 1) \; $ Il existe un uniuqe $v \in \; \mathcal{L}(E) $ tq $ \\ \bullet \forall \; x \in E, \forall y \; \in E, \scalprod{u(x)}{y}= \scalprod{x}{v(y)} \\ $L'endomorphisme  $ v$ ainsi défini s'appelle \term{adjoint de u} et noté $u^{*} \\ 2) \; si \ge $ est une base ornée de $E \Rightarrow Mat_{\ge}(u^{*})= t~{Mat_{\ge}(u)}$
+
+\proposition soit E ee et $ f,g \; \in \; \mathcal{L}(E)  $ alors on a : $ \\ 1) \; (f^{*})^{*} = f \\ 2) \; (f+g)^{*}= f^{*}+ g^{*} \\ 3) \; ( \lambda f)^{*} = \lambda f^{*} \\ 4) \; (f \circ g )^{*}= g^{*} \circ f^{*}$
+
+\definition soit E ee, $u \in \mathcal{L}(E),  $ on dit que $u  $ est \term{symétrique } ou \term{auto-adjoint} si $ u = u^{*} $. De façon équivalente, $u$ est symétrique $ \iff  \forall x \; \in E, \forall y \; \in E, \scalprod{u(x)}{y}= \scalprod{y}{u(y)}   $
+
+\corollaire (Proposition 1) soit E un ee, $ u \in \mathcal{L}(E) $ alors $ u$ est symétrique $ \iff$ une des 2 pptés équivalents est vrai : $  \\ 1) \; Mat_{\ge}(u) $ est sym $\forall$ base o.n. $\ge $ de $E$. $ \\ 2) \; \exists     $ une base o.n. $ \ge $ de $E$ tq $Mat_{\ge}(u)  $ soit \term{sym}
+
+\commentaire (Rappel): Une mat $A$ est dite \term{symétrique  } si $ t~{A}=A  \\ Exemples: \\ \bullet Une projection orthogonale est symétrique \\ \bullet Tte symétrique orthogonale est symétrique$
+
+\corollaire soit E ee, $  u\; \in \mathcal{L}(E)  $ alors $ u \; \in \go (E) \\ \iff u  $ est \term{inversible} et  $ u^{*} = u^{-1} \\ \iff u^{*}u= uu^{*}= id_E $
+
+\commentaire (Notation ) : $\mathcal{S}_{E} = \{ u \; \in \mathcal{L}(E) | u = u^{*}\}, \mathcal{S}_{n}(K) = \{ A \; \in M_n(K) | t~{A} = A \}  \\ $On a si $ \ge $ est une base o.n. de $E$ alors $  u \; \in \mathcal{S}(E) \iff Mat_{\ge}(u) \; \in \mathcal{S}_{n}(\mathbb{R}) $
+
+\proposition soit E ee et $ u \; \in \; \mathcal{S}_{E}.$ Si  $ F  $ est sev de $ E$ stable par $u$ , alors $ F^{\bot}$ est aussi stable par u.    
+
+
+
+
+% \go {\rt} \gb \gee \gu \go \et \oud det
+\bcattention
+\bccrayon
+\bcplume
+\bcquestion
+\bcbombe
+\bcinterdit
+\bcnucleaire
+\bctrombone
+
+
+
+%\foo{scale=0.1}
+
+
+%\emph{Partie à compléter.}
+
+% ====================================================================
+%\ensemble { }
+
+%\iff
+
+%\vv
+
+%\paralell
+\end{document}
