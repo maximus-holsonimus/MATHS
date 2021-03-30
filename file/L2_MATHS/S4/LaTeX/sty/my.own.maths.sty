@@ -1,0 +1,239 @@
+\ProvidesPackage{m44cours}
+% --------------- PDFLaTeX, XeLaTeX ou LuaLaTeX ?
+\usepackage{iftex}
+\ifPDFTeX
+  % --------------- PDFLaTeX ou LaTeX
+  \usepackage{cmap} % pour permettre copier/coller
+  \usepackage[utf8]{inputenc} % pour avoir ce fichier en utf8
+  \usepackage[T1]{fontenc} % pour avoir les lettres accentuées dans le résultat PDF
+  \usepackage{lmodern} % pour utiliser cette police vectorielle (elle utilise l'encodage T1 avec 256 lettres)
+\else
+  % --------------- XeLaTeX ou LuaLaTeX
+  \usepackage{fontspec} % pour le bon encodage des PDFs => police lmodern
+\fi
+% ---------------
+
+\usepackage{tikz}
+\usepackage{upgreek}
+
+
+
+\newcommand{\foo}[1]{%
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Flowchart: Connector [id:dp9912188486272326] 
+\draw   (284,138) .. controls (284,118.67) and (299.67,103) .. (319,103) .. controls (338.33,103) and (354,118.67) .. (354,138) .. controls (354,157.33) and (338.33,173) .. (319,173) .. controls (299.67,173) and (284,157.33) .. (284,138) -- cycle ;
+
+% Text Node
+\draw (296,121) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{pcr}\selectfont {\LARGE f l}}};
+
+
+\end{tikzpicture}
+}
+
+
+
+% ====================================================================
+\usepackage[a4paper, margin=21mm, left=42mm]{geometry} % la "géométrie" de la page
+\usepackage{mathtools,amssymb,bm,amsthm} % pour des possibilités en math étendues (mathtools => amsmath)
+\usepackage[french]{babel} % pour franciser LaTeX
+\usepackage{xcolor} % pour pouvoir utiliser des couleurs
+\usepackage{graphicx} % pour \includegraphics
+\usepackage[e]{esvect} % pour les vecteurs avec \vv
+% pour espacer un peu le texte
+\usepackage{ amssymb }
+\parskip=1mm
+\parindent=0mm
+\renewcommand{\baselinestretch}{1.1}
+\setlength{\abovedisplayskip}{2pt plus 4pt}
+\setlength{\belowdisplayskip}{3pt plus 4pt}
+\setlength{\abovedisplayshortskip}{1pt plus 4pt}
+\setlength{\belowdisplayshortskip}{2pt plus 4pt}
+% les sections
+\usepackage{needspace}% Pour prévenir les coupures des pages au mauvaise endroits
+\renewcommand{\section}[1]{%
+  \needspace{4\baselineskip}%
+  \refstepcounter{section}%
+  \vspace{.7\baselineskip}\par\noindent%
+  {\sffamily\huge%
+    \llap{%
+    \S\thesection.~%
+    }%
+    #1%
+  }%
+  \par\vspace{.4\baselineskip}%
+}
+% les couleurs
+\colorlet{definition}{red!70!blue}
+\colorlet{proposition}{blue}
+\colorlet{commentaire}{gray}
+\colorlet{theoreme}{purple}
+\colorlet{lemme}{red}
+\colorlet{corollaire}{red}
+\colorlet{formule}{red}
+
+
+
+
+% une commande pour pouvoir définir des références perso
+% https://tex.stackexchange.com/a/328051
+\newcommand{\mylabel}[2]{\protected@edef\@currentlabel{#2}\label{#1}}
+% les commandes principales
+\newcounter{topic}[section]
+% définition du paragraphe
+% #1 la couleur
+% #2 l'abréviation (comme Déf ou Prop)
+% #3 le label (peut être vide)
+\newcommand{\topic}[3]{\needspace{2\baselineskip}\par\noindent%
+\llap{% le contenu est mis à gauche sans espace horizontal occupé
+  \textcolor{#1}{%
+    #2~% l'abréviation
+    \stepcounter{topic}% on passe au topique suivant
+    \edef\paddedtopic{\ifnum\thetopic<10\relax0\fi\thetopic}% l'indice du topique en deux chiffres
+    \ifnum \thetopic > 0\relax
+      \paddedtopic~% l'indice du topique
+    \fi
+    $\blacktriangleright$~% le triangle
+    \ifx\hfuzz#3\hfuzz\else% si un label est présent
+      \mylabel{#3}{\S\thesection.\paddedtopic}% les \ref vers le label #3 vont afficher la section et le topique
+    \fi%
+  }%
+}%
+\ignorespaces
+}
+% définition
+\newcounter{totaldefinitions}
+\setcounter{totaldefinitions}{-2}
+% #1 (optionnel) est le nom du label
+\newcommand{\definition}[1][]{%
+  \stepcounter{totaldefinitions}%
+  \topic{definition}{Déf}{#1}%
+}
+% proposition/propriété
+\newcounter{totalpropositions}
+\setcounter{totalpropositions}{-2}
+% #1 (optionnel) est le nom du label
+\newcommand{\proposition}[1][]{%
+  \stepcounter{totalpropositions}%
+  \topic{proposition}{Prop}{#1}%
+}
+% théorèmes
+\newcounter{totaltheoremes}
+\setcounter{totaltheoremes}{-2}
+% #1 (optionnel) est le nom du label
+\newcommand{\theoreme}[1][]{%
+  \stepcounter{totaltheoremes}%
+  \topic{theoreme}{TH}{#1}%
+}
+% lemmes
+\newcounter{totallemmes}
+\setcounter{totallemmes}{-2}
+% #1 (optionnel) est le nom du label
+\newcommand{\lemme}[1][]{%
+  \stepcounter{totallemmes}%
+  \topic{lemme}{Lemme}{#1}%
+}
+% corollaires
+\newcounter{totalcorollaires}
+\setcounter{totalcorollaires}{-2}
+% #1 (optionnel) est le nom du label
+\newcommand{\corollaire}[1][]{%
+  \stepcounter{totalcorollaires}%
+  \topic{corollaire}{Cor}{#1}%
+}
+% formules
+\newcounter{totalformules}
+\setcounter{totalformules}{-2}
+% #1 (optionnel) est le nom du label
+\newcommand{\formule}[1][]{%
+  \stepcounter{totalformules}%
+  \topic{formule}{FF}{#1}%
+}
+% commentaire/note/remarque
+% #1 (optionnel) est le nom du label
+\newcounter{totalcomments}
+\setcounter{totalcomments}{-2}
+\newcommand{\commentaire}[1][]{
+  \stepcounter{totalcomments}%
+  \topic{commentaire}{}{#1}
+}
+% démonstration
+\newcommand{\demo}[1]{%
+  \par\noindent{\small Démonstration.~#1}
+}
+\AtEndDocument{
+  \refstepcounter{totaldefinitions}\label{numberdefinitions}
+  \refstepcounter{totalpropositions}\label{numberpropositions}
+  \refstepcounter{totaltheoremes}\label{numbertheoremes}
+  \refstepcounter{totalcomments}\label{numbercomments}
+  \refstepcounter{totallemmes}\label{numberlemmes}
+  \refstepcounter{totalcorollaires}\label{numbercorollaires}
+
+}
+% ------------- Pour ajuster les enumerate
+\usepackage[shortlabels]{enumitem}
+% compatibilité enumitem - franch babel (d'après la doc de 28 septembre 2014, p.14)
+\setlist[itemize,1]{label=$\blacktriangleright$}
+\setlist[itemize,2]{label=$\triangleright$}
+% ====================================================================
+\let\ssi\Leftrightarrow % ou \newcommand\ssi{\;\Leftrightarrow\;}
+\newcommand*\isoto{\xrightarrow{\smash{\raisebox{-.28em}{\ensuremath{\sim\kern1pt}}}}}
+\DeclareMathOperator{\lin}{\mathcal{L}}
+\DeclareMathOperator{\aff}{Aff}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\rang}{Rang}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Mat}{Mat}
+
+
+\DeclareMathOperator{\iso}{Iso}
+\let\ker\relax\DeclareMathOperator{\ker}{Ker}
+\DeclareMathOperator{\im}{Im}
+\renewcommand{\Re}[2][]{\operatorname{Re}#1( #2 #1)}% la partie réelle d'un nombre complèxe
+\renewcommand{\Im}[2][]{\operatorname{Im}#1( #2 #1)}% la partie imaginaire d'un nombre complèxe
+\DeclareMathOperator{\signe}{signe}
+\newcommand*{\id}{\mathrm{Id}}
+% Ensemble , à utiliser ainsi : \ensemble[\big]{x^2}{x \in \R}
+\newcommand*{\ensemble}[3][]{#1\{ #2 \;#1|\; #3 #1\}}
+% Ensemble , à utiliser ainsi : \ensemble[\big]{ax+by=d}
+\newcommand*{\ens}[2][]{#1\{ #2 #1\}}
+% Le cardinal d'un ensemble , à utiliser ainsi : \card[\big]{A\cap B}
+\newcommand*{\card}[2][]{\# #1( #2 #1)}
+% Espace affine engendré, à utiliser ainsi : \affspan{\ens{A}}, \affspan[\big]{A,B}
+\newcommand*{\affspan}[2][]{#1\langle{#2}#1\kern.07em\rangle}
+% Enveloppe convexe, à utiliser ainsi : \convhull{\ens{A}}, \convhull[\big]{A,B}
+\newcommand*{\convhull}[2][]{#1[{#2}#1\kern.14em]}
+% Produit scalaire à utiliser ainsi : \scalprod uv, \scalprod{\vv u}{\vv v}, \scalprod[\big]{\vv A}{\vv B}
+\newcommand*{\scalprod}[3][]{#1\langle{#2}\kern1pt #1|{#3}#1\rangle}
+% La valeur absolue \abs{t}
+\newcommand*{\abs}[1]{\lvert#1\rvert}
+% La norme \norm{(x,y)}
+\newcommand*{\norm}[1]{\lVert#1\rVert}
+% somme directe
+\newcommand*{\poplus}{\overset{\scriptscriptstyle\perp}{\oplus}}
+% nouveau terme
+\newcommand*{\term}[1]{\textcolor{definition}{\bfseries #1}}
+% angle (bas)
+\newcommand*{\ang}{\scalebox{0.77}{$\measuredangle$}\kern1pt}
+% angle (hau)
+\let\wang\widehat
+% triangle
+\newcommand*{\tri}{\scalebox{0.77}{$\triangle$}\kern1pt} % ou \def\tri{{\scriptstyle\triangle}}
+% cercle, comme \cerc{C}
+\newcommand*{\cerc}[1]{\mathcal{#1}}
+% cercle, comme \cercle{O,R}
+\newcommand*{\cercle}[2][]{\cerc{C}#1( #2 #1)}
+% arc
+\usepackage{yhmath}
+\let\arc\wideparen
+% modulo
+\newcommand*{\modulo}[1]{\,(\operatorname{mod} #1)}
+% pour les poids normalisés et les longueurs algébriques
+\let\bar\overline
+% --------------------------------------------------------------------
+% pour les liens.
+\usepackage[pdfencoding=auto]{hyperref} % En règle générale il doit être le dernier package chargé.
+% ====================================================================
