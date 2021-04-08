@@ -1,4 +1,7 @@
-# Niveau LICENCE
+<h1 align="center"> Omnibus Pretium </h1>
+
+# Niveau LICENCE 
+
 Cours Magistraux, feuilles d'exercices et fiches résumé en MATHS
 
 Proposé par Maxence Defraiteur, étudiant à l'Université de Lille
