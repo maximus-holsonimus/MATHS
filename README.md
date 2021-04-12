@@ -1,12 +1,5 @@
 <h1 align="center"> Omnibus Pretium </h1>
 
-{
-  "schemaVersion": 1,
-  "label": "hello",
-  "message": "sweet world",
-  "color": "orange"
-}
-
 # Niveau LICENCE 
 
 Cours Magistraux, feuilles d'exercices et fiches résumé en MATHS
