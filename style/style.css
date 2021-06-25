@@ -24,6 +24,48 @@ a:visited, a{
 	color:black;
 }
 
+/* ANNOTATIONS */
+
+.annotationFF:hover {
+	content:"Fiche de Formules" ;
+}
+
+.annotationchinese:hover {
+	content:"Toutes mes fiches de Révision du S4" ;
+}
+
+.annotationlatex:hover {
+	content:"Latexifisation du cours d'Algèbre Bilinéaire et Espaces Euclidiens" ;
+}
+
+.annotationpres1:hover {
+	content:"Suites et Séries de Fonctions, Séries Entières, Formules de Cauchy" ;
+}
+
+.annotationpres2:hover {
+	content:"Algèbre Bilinéaire / Formes quadratiques et Espaces euclidiens" ;
+}
+
+.annotationpres3:hover {
+	content:"Probabilités discrètes" ;
+}
+
+.annotationpres4:hover {
+	content:"Géométrie élémentaire" ;
+}
+
+.annotationpres5:hover {
+	content:"Préparation aux Concours d'entrée en Ecole d'ingénieur, CAPES, Agrégation" ;
+}
+
+.annotationpres6:hover {
+	content:"Théorie des Ensembles" ;
+}
+
+.annotationpres7:hover {
+	content:"Géométrie des courbes et des surfaces" ;
+}
+
 table {
   background: #ffffff;
   color: black;
